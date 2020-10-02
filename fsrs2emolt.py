@@ -1,6 +1,6 @@
 # Routine to process FSRS csv files and LatLong.txt files to make eMOLT-like ORACLE-ready files
 # modeled after the old "emolt_pd.py" routine
-# Manual step for now is to insert relevent csv and txt file in proper subdirectory under /datae/jmanning/fsrs/YYYY/LFAXX/
+# Manual step for now is to insert relevent csv and txt file in proper subdirectory under the "inputdir" such as /data5/jmanning/fsrs/YYYY/LFAXX/
 #
 # Jim Manning Feb 2020
 #
@@ -19,16 +19,24 @@ from math import radians, cos, sin, atan, sqrt
 
 
 ##  HARDCODES ###
-year='2011'
-LFAzone='33'
-inputdir='/net/data5/jmanning/fsrs/'+year+'/LFA'+LFAzone+'/'
+year='2010'   # where this is the start year and the data usually strattles the new year
+LFAzone='34'
+pc_or_linux='pc' # directory names differ depending on which machine I am working on
+if pc_or_linux=='pc':
+    inputdir='c:\\Users\\Joann\\Downloads\\FSRS\\'+year+'\\LFA'+LFAzone+'\\' # this is the directopry with all the csv &  txt files for this year and LFAzone
+    webdir='c:\\Users\\Joann\\Downloads\\FSRS\\web\\' # folder to store all png and html files results for the web
+    outfile='c:\\Users\\Joann\\Downloads\\FSRS\\Prep_for_oracle.dat'# result file with hourly data
+    sets_info_file='c:\\Users\\Joann\\Downloads\\FSRS\\sets_info.csv' # statistics on each deployment
+else:
+    inputdir='/net/data5/jmanning/fsrs/'+year+'/LFA'+LFAzone+'/'
+    webdir='/net/newfish_www/html/nefsc/emolt/fsrs/'
+    outfile='/net/data5/jmanning/fsrs/Prep_for_oracle.dat'# result file with hourly data
+    sets_info_file='/net/data5/jmanning/fsrs/sets_info.csv' # statistics on each deployment
 latlon_file=inputdir+'LatLong LFA '+LFAzone+'_'+year[2:4]+str(int(year[2:4])+1)+'.txt'# standard log file for this LFA and year
 Sc='FS'+LFAzone #site code
-skipr=8 # number of rows to skip iin csv file
+skipr=8 # number of rows to skip in csv file since it seems to vary from year to year
 crit=1.0 # number of deviations of first derivative to reject spikes (used in "clean_time_series" function)
 methSE='use_lalo_file' # method to define start and end of data (ie in  the water) where 'click' and 'use_lalo_file' are the options
-outfile='/net/data5/jmanning/fsrs/Prep_for_oracle.dat'# result file with hourly data
-sets_info_file='/net/data5/jmanning/fsrs/sets_info.csv' # statistics on each deployment
 #################
 
 ###  FUNCTIONS #########
@@ -187,12 +195,13 @@ def plot_final(FFC,lalo,d,title1,title2):
       lines2, labels2 = ax2.get_legend_handles_labels()
       ax2.legend(lines + lines2, labels + labels2, loc='best')
       fig.autofmt_xdate()
-      plt.show()
+      #plt.show()
       return FT
 
 def write_html_file(Sc,year,fisherman,sn):
     # writes an html file for this case (or appends to existing for this fishermen)
-    file="/net/pubweb_html/epd/ocean/MainPage/lob/"+fisherman+".html"
+    #file="/net/pubweb_html/epd/ocean/MainPage/lob/"+fisherman+".html"
+    file=webdir+fisherman+".html"
     ex=os.path.exists(file)
     if ex==True:
         with open(file, 'r+') as fd:
@@ -206,8 +215,10 @@ def write_html_file(Sc,year,fisherman,sn):
             fd.writelines(contents)
             fd.close()
     else:
-        fin = open("/net/pubweb_html/epd/ocean/MainPage/lob/template.html", "rt")
-        fout = open("/net/pubweb_html/epd/ocean/MainPage/lob/"+fisherman+'.html', "wt")
+        #fin = open("/net/pubweb_html/epd/ocean/MainPage/lob/template.html", "rt")
+        #fout = open("/net/pubweb_html/epd/ocean/MainPage/lob/"+fisherman+'.html', "wt")
+        fin = open(webdir+"template.html", "rt")
+        fout = open(webdir+fisherman+'.html', "wt")
         for line in fin:
             if 'AA' in line:
                 fout.write(line.replace('AA', fisherman))
@@ -295,8 +306,8 @@ for j in sns: # loop through all the serieal numbers and look to read the approp
       titlelabel2='max dist change = '+'%s' % float('%6.1f' % max_d)+' kilometers'
       FT=plot_final(FFC,lalo,d,titlelabel,titlelabel2)
     
-      plt.savefig('/net/pubweb_html/epd/ocean/MainPage/lob/fsrs/'+Sc+'_'+fisherman+'_'+year+'.png')
-
+      #plt.savefig('/net/pubweb_html/epd/ocean/MainPage/lob/fsrs/'+Sc+'_'+fisherman+'_'+year+'.png')
+      plt.savefig(webdir+Sc+'_'+fisherman+'_'+year+'.png') # where "webdir" is hardcoded at top of code
 
       # output site,latitude,longitude,time,depth,temp to load into ORACLE
       # where we get the nearest lat.lon,depth for each temp
