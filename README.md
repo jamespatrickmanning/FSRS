@@ -6,4 +6,8 @@ One is called "eMOLT_FSRS_notes" (https://docs.google.com/document/d/1VhBAl3sQAY
 
 You will see that the most useful code is from recent years (~2020) which deal with the raw hourly data derived from the original Minilog files.
 The old code (<2018) was used to examine some of the other daily-averaged versions of the dataset that had been processed in various ways by various labs.
+The new code called "fsrs2emolt.py" processes the raw Minilog csv files assuming there is an associated latlon text file documenting where each unit was deployed.
+There is a couple different flowcharts describing this fsrs2emolt routine. We keep our flowchart in "drawio" format at, for example, https://app.diagrams.net/#G1_GAfd70eh8BBU2I4BGuuvtfQwh8ChLLL but a Oct 2020 pdf version is provided in this repository.
+
+As of Oct 2, 2020, this routine has only been run on a couple years of data for Lobster Fishing Area #34. It may take weeks to process all the data.
 
