@@ -11,4 +11,7 @@ There is a couple different flowcharts describing this fsrs2emolt routine. We ke
 
 As of Oct 2, 2020, this routine has only been run on a couple years of data for Lobster Fishing Area #34. It may take weeks to process all the data.
 
-On Dec 29, 2020, at the request of Cooper and his BDC colleagues, I up loaded a set of example input files for the case of LFA#34 2012-2013.  Contained in the "lfa34_1213.tar" file is a header file "LatLong LFA 34_1213.txt" along with a few dozen minilog ascii files like, for example, "Minilog-T_3376_20130705_1.csv".
+On Dec 29, 2020, at the request of Cooper and his BDC colleagues, I up loaded a set of example input files for the case of LFA#34 2012-2013.  Contained in the "lfa34_1213.tar" file is a header file "LatLong LFA 34_1213.txt" along with a few dozen minilog ascii files like, for example, "Minilog-T_3376_20130705_1.csv".  
+
+Note that there is a set of hardcodes at the top of "fsrs2emolt.py" that need to be modified for each run.  The year,  LFA, and location of these input files on your machine need to be specified. for example.
+
