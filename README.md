@@ -9,9 +9,11 @@ The old code (<2018) was used to examine some of the other daily-averaged versio
 The new code called "fsrs2emolt.py" processes the raw Minilog csv files assuming there is an associated latlon text file documenting where each unit was deployed.
 There is a couple different flowcharts describing this fsrs2emolt routine. We keep our flowchart in "drawio" format at, for example, https://app.diagrams.net/#G1_GAfd70eh8BBU2I4BGuuvtfQwh8ChLLL but a Oct 2020 pdf version is provided in this repository.
 
-As of Oct 2, 2020, this routine has only been run on a couple years of data for Lobster Fishing Area #34. It may take weeks to process all the data.
-
-On Dec 29, 2020, at the request of Cooper and his BDC colleagues, I up loaded a set of example input files for the case of LFA#34 2012-2013.  Contained in the "lfa34_1213.tar" file is a header file "LatLong LFA 34_1213.txt" along with a few dozen minilog ascii files like, for example, "Minilog-T_3376_20130705_1.csv".  
-
 Note that there is a set of hardcodes at the top of "fsrs2emolt.py" that need to be modified for each run.  The year,  LFA, and location of these input files on your machine need to be specified. for example.
+
+As of early Oct, 2020, this routine has only been run on a couple years of data for Lobster Fishing Area #34. It may take weeks to process all the data.
+
+In late Dec, 2020, at the request of Cooper and his BDC colleagues, I up loaded a set of example input files for the case of LFA#34 2012-2013.  Contained in the "lfa34_1213.tar" file is a header file "LatLong LFA 34_1213.txt" along with a few dozen minilog ascii files like, for example, "Minilog-T_3376_20130705_1.csv".  A few weeks later, I sent them the entire decade of data for all LFA's in "Jim_Manning.tar.gz" file
+
+As of early Feb 2021, Carles is processing all the data and has a new version of the code called ????. 
 
