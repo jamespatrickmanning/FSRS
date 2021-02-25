@@ -107,7 +107,7 @@ Before explaining the filtering flag, some variables are created to understand t
 
 ### Bathymetry model quality control tests
 
-<b>qc_bathmetry</b>: Uses the gebco model to compare with the logged depth: 
+<b>qc_bathmetry</b>: Suspect based upon discrepancy between logged depth and GEBCO database bathymetry for the corresponding logged location. 
  - For depths above 20 meters, data is flagged as suspect if depth compared with the gebco model at the same location is greater than 10 meters.
  - For depths below 20 meters, data is flagged as suspect if the variance between depth and the gebco model at the same location is greater than 30%. 
 
@@ -126,7 +126,7 @@ Before explaining the filtering flag, some variables are created to understand t
 
 ### Logged location quality control tests
 
-<b>qc_logged_location</b>: data is flagged as bad if consecutives samples are depth flagged as suspect and location has not varied. (Represents location has not been recorded).
+<b>qc_logged_location</b>: Suspect based upon a logged change in depth not corresponding to a change in position.
 
 <div align="center">
 
@@ -143,7 +143,7 @@ Before explaining the filtering flag, some variables are created to understand t
 
 ### Logged depth quality control tests
 
-<b>qc_logged_depth</b>: 
+<b>qc_logged_depth</b>: Suspect based upon a logged change in location not corresponding to change in depth.
  - For depths above 20 meters, data is flagged as suspect if consecutives depths are greater than 10 meters.
  - For depths below 20 meters, data is flagged as suspect if consecutives depths are greater than 15%. 
 
