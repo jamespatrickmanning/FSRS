@@ -20,28 +20,11 @@ Authors: James Manning, Cooper Van Vranken \& Carles Castro Muniain
 <!--ts-->
 
 * [Flags](#flags)
-* [Real-time Quality control](#real-time-quality-control)
-	* [Fisheries quality control tests](#fisheries-quality-control-tests)
-		* [Platform identification (under development)](#platform-identification-under-development)
-		* [Vessel ID control (under development)](#vessel-id-control-under-development)
-		* [Gear type control (under development)](#gear-type-control-under-development)
-	* [Quality control tests CTD](#quality-control-test-ctd)
-		* [Impossible date test](#impossible-date-test)
-		* [Impossible location test](#impossible-location-test)
-		* [Position on land test](#position-on-land-test)
-		* [Impossible speed test](#impossible-speed-test)
-		* [Global range test](#global-range-test)
-		* [Spike test](#spike-test)
-		* [Digit rollover test](#digit-rollover-test)
-		* [Stuck value / flat line test](#stuck-value-flat-line-test)
-		* [Rate of change test](#rate-of-change-test)
-		* [Timing / gap test](#timing-gap-test)
-		* [Climatology test](#climatology-test)
-		* [Drift test (under development)](#drift-test-under-development)
-	* [Quality control tests oxygen / turbidity (under development)](#quality-control-tests-oxygen-turbidity-under-development)
-* [Delayed-mode Quality control (under development)](#delayed-mode-quality-control-under-development)
-* [Quality control tests (under development)](#quality-control-tests-under-development)
-* [References](#references)
+* [Non real-time Quality control](#non-real-time-quality-control)
+	* [Filter quality control tests](#filter-quality-control-tests)
+	* [Bathymetry model quality control tests](#bathymetry-model-quality-control-tests)
+	* [Logged location quality control tests](#logged-location-quality-control-tests)
+	* [Logged depth quality control tests](#logged-depth-quality-control-tests)
 
 <!--te-->
 
@@ -85,7 +68,7 @@ Before explaining the filtering flag, some variables are created to understand t
  - Std2: temperature standard deviation using a rolling of the 48 nearest samples (2 days approximately).
  - IQR: temperature InterQuartile Range between quantiles 0.2 and 0.8 using a rolling of the 48 nearest samples.
 
-<b>qc_spike</b>: 
+<b>qc_spike</b>: <br>
 	- Data is flagged as failed if the following conditions are not fulfilled.
 		- Filter 1: Temperature < -3 ºC
 		- Filter 2: 
@@ -116,7 +99,7 @@ Before explaining the filtering flag, some variables are created to understand t
 | Suspect (3) | _Filter 3_ |
 | Pass (1) | _Applies for test pass condition._ |
 
-<sub> Table 11. Flat line flags. </sub>
+<sub> Table 2. Flat line flags. </sub>
 
 </div>
 
@@ -141,7 +124,7 @@ Before explaining the filtering flag, some variables are created to understand t
 
 <br>
 
-### Logged location model quality control tests
+### Logged location quality control tests
 
 <b>qc_logged_location</b>: data is flagged as bad if consecutives samples are depth flagged as suspect and location has not varied. (Represents location has not been recorded).
 
@@ -152,13 +135,13 @@ Before explaining the filtering flag, some variables are created to understand t
 | Suspect (3) | _Location difference is &gt; 1 km_ |
 | Pass (1) | _Applies for test pass condition._ |
 
-<sub> Table 3. Gear type flags. </sub>
+<sub> Table 4. Gear type flags. </sub>
 
 </div>
 
 <br>
 
-### Logged depth model quality control tests
+### Logged depth quality control tests
 
 <b>qc_logged_depth</b>: 
  - For depths above 20 meters, data is flagged as suspect if consecutives depths are greater than 10 meters.
