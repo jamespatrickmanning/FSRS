@@ -99,7 +99,7 @@ Before explaining the filtering flag, some variables are created to understand t
 | Suspect (3) | _Filter 3_ |
 | Pass (1) | _Applies for test pass condition._ |
 
-<sub> Table 2. Flat line flags. </sub>
+<sub> Table 2. Spike flags. </sub>
 
 </div>
 
@@ -118,7 +118,7 @@ Before explaining the filtering flag, some variables are created to understand t
 | Suspect (3) | _Depth &gt; 20 meters: difference &gt; 10 meters <br> Depth &lt;= 20 meters: difference &gt; 15%_ |
 | Pass (1) | _Applies for test pass condition._ |
 
-<sub> Table 3. Gear type flags. </sub>
+<sub> Table 3. Bathymetry flags. </sub>
 
 </div>
 
@@ -135,7 +135,7 @@ Before explaining the filtering flag, some variables are created to understand t
 | Suspect (3) | _Location difference is &gt; 1 km_ |
 | Pass (1) | _Applies for test pass condition._ |
 
-<sub> Table 3. Gear type flags. </sub>
+<sub> Table 3. Logged location flags. </sub>
 
 </div>
 
@@ -154,7 +154,7 @@ Before explaining the filtering flag, some variables are created to understand t
 | Suspect (3) | _Depth &gt; 20 meters: difference &gt; 10 meters <br> Depth &lt;= 20 meters: difference &gt; 15%_ |
 | Pass (1) | _Applies for test pass condition._ |
 
-<sub> Table 4. Gear type flags. </sub>
+<sub> Table 4. Logged depth flags. </sub>
 
 </div>
 
