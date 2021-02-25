@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<erddapDatasets>
+<!-- GENERAL INFORMATION
+The information in this file specifies which datasets your ERDDAP will serve.
+The initial version of this file has a few examples which should work for you.
+But after your initial experiments with ERDDAP, 
+you should replace them with information for your datasets.
+
+You can change this document (e.g., add datasets, change metadata) while ERDDAP is running. 
+The changes will be detected the next time this document is read
+(as often as loadDatasetsMinMinutes).
+
+Each dataset has a reloadEveryNMinutes value (default = 10080 (one week)).
+When this document is reread, datasets that haven't been been reloaded in 
+their reloadEveryNMinutes will be reloaded.
+You only need to specify a reloadEveryNMinutes value if you anticipate that
+the dataset will change periodically.
+
+If this document has an xml error,     processing will stop and an email
+will be sent to emailEverythingTo as specified in setup.xml.
+
+If you want to remove a dataset while ERDDAP is running, add 
+    active="false"
+to the dataset tag.  For example,
+    <dataset type="EDDGridFromDap" datasetID="erdMHchla8day" active="false">
+
+For more information, see 
+https://coastwatch.pfel.noaa.gov/erddap/download/setupDatasetsXml.html
+-->
+
+<!-- The tags below are described in setupDatasetsXml.html.
+     The defaults listed below are as of ERDDAP v2.00. -->
+<cacheMinutes></cacheMinutes>                                     <!-- default=60 --> 
+<decompressedCacheMaxGB></decompressedCacheMaxGB>                 <!-- default=10 --> 
+<decompressedCacheMaxMinutesOld></decompressedCacheMaxMinutesOld> <!-- default=15 --> 
+<drawLandMask></drawLandMask>                                     <!-- "over" or "under" (default) -->
+<graphBackgroundColor></graphBackgroundColor>                     <!-- 0xAARRGGBB, default is 0xffccccff -->
+<loadDatasetsMinMinutes></loadDatasetsMinMinutes>                 <!-- usually=default=15 -->
+<loadDatasetsMaxMinutes></loadDatasetsMaxMinutes>                 <!-- default=60 -->
+<logLevel></logLevel> <!-- "warning" (fewest messages), "info" (default), or "all" (most messages) -->
+<nGridThreads></nGridThreads>                                     <!-- default=1 -->
+<nTableThreads></nTableThreads>                                   <!-- default=1 -->
+<partialRequestMaxBytes></partialRequestMaxBytes>                 <!-- default=490000000 -->
+<partialRequestMaxCells></partialRequestMaxCells>                 <!-- default=10000000 -->
+<slowDownTroubleMillis></slowDownTroubleMillis>                   <!-- default=1000 -->
+<unusualActivity></unusualActivity>                               <!-- default=10000 -->
+<!-- The defaults for the following tags are in messages.xml. -->
+<startHeadHtml5></startHeadHtml5>                                
+<endBodyHtml5></endBodyHtml5>
+<standardLicense></standardLicense>
+<standardContact></standardContact>
+<standardDataLicenses></standardDataLicenses>
+<standardDisclaimerOfEndorsement></standardDisclaimerOfEndorsement>
+<standardDisclaimerOfExternalLinks></standardDisclaimerOfExternalLinks>
+<standardGeneralDisclaimer></standardGeneralDisclaimer>
+
+<standardPrivacyPolicy><![CDATA[
+<br>&nbsp;
+<hr>
+<h2><a class="selfLink" id="privacyPolicy" href="#privacyPolicy" rel="help">Privacy Policy</a></h2>
+ERDDAP follows 
+<a rel="bookmark" href="https://www.noaa.gov/protecting-your-privacy"
+  >NOAA's Privacy Policy Guidelines</a>.
+]]></standardPrivacyPolicy>
+
+<startBodyHtml5><![CDATA[ 
+<body>
+<table class="compact nowrap" style="width:100%; background-color:#128cb5;"> 
+  <tr> 
+    <td style="text-align:center; width:80px;"><a rel="bookmark"
+      href="https://www.berringdatacollective.com/"><img 
+      title="Berring Data Collective" 
+      src="&erddapUrl;/images/noaab.png" alt="BDC"
+      style="vertical-align:middle;"></a></td> 
+    <td style="text-align:left; font-size:x-large; color:#f4bc51; ">
+      <strong>Fisheries Ocean Data ERDDAP</strong>
+      <br><small><small><small>Agreggated by Berring Data Collective</small></small></small>
+      </td> 
+    <td style="text-align:right; font-size:small; color:#e1e1e1;"> 
+      &loginInfo; &nbsp; &nbsp;
+      <br>ERDDAP is brought to you by 
+      <a title="National Oceanic and Atmospheric Administration" rel="bookmark"
+      href="https://www.noaa.gov">NOAA</a>  
+      <a title="National Marine Fisheries Service" rel="bookmark"
+      href="https://www.fisheries.noaa.gov">NMFS</a>  
+      <a title="Southwest Fisheries Science Center" rel="bookmark"
+      href="https://swfsc.noaa.gov">SWFSC</a> 
+      <a title="Environmental Research Division" rel="bookmark"
+      href="https://swfsc.noaa.gov/textblock.aspx?Division=ERD&amp;id=1315&amp;ParentMenuId=200">ERD</a>  
+      &nbsp; &nbsp;
+      </td> 
+  </tr> 
+</table>
+]]></startBodyHtml5>
+
+<theShortDescriptionHtml><![CDATA[ 
+<h1>ERDDAP</h1>
+ERDDAP is a data server that gives you a simple, consistent way to download 
+subsets of scientific datasets in common file formats and make graphs and maps. 
+This particular ERDDAP installation has oceanographic data
+(for example, data from satellites and buoys).
+
+[standardShortDescriptionHtml]
+
+]]></theShortDescriptionHtml>
+
+<!-- If you want to refuse requests from certain clients
+  (e.g., to fend off a Denial of Service attack or an overly zealous web robot), 
+  add their numeric IP address (e.g., 123.45.67.89) to this comma-separated list. 
+  You can also replace the last number in an IP address with * to block 0-255 (e.g., 123.45.67.*).
+  See your ERDDAP daily report for a list/tally of the most active requesters. -->
+<requestBlacklist></requestBlacklist>
+
+
+<!-- If you want to prevent specific people from using the email/URL subscription
+     system, add their email addresses to this comma-separated list. 
+     You can use the name "*" to blacklist an entire domain, e.g., *@example.com .
+-->
+<subscriptionEmailBlacklist>your.email@yourinstitution.edu, some.name@company.com, 
+another.name@company.com, *@example.com</subscriptionEmailBlacklist>
+
+<!-- NOTE! Since the source files don't have any metadata, you must add metadata
+  below, notably 'units' for each of the dataVariables. -->
+
+<!-- FSRS dataset -->
+
+<dataset type="EDDTableFromAsciiFiles" datasetID="FSRS_Lobster_FV" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>50000</updateEveryNMillis>
+    <fileDir>/home/ec2-user/data_fsrs/</fileDir>
+    <fileNameRegex>.*\.csv</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <charset>UTF-8</charset>
+    <columnSeparator>,</columnSeparator>
+    <columnNamesRow>1</columnNamesRow>
+    <firstDataRow>2</firstDataRow>
+    <!--sortedColumnSourceName>datetime</sortedColumnSourceName>
+    <sortFilesBySourceNames>datetime</sortFilesBySourceNames-->
+	<sortedColumnSourceName>datetime</sortedColumnSourceName>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>false</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">Point</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3, ISSCFG</att>
+        <att name="infoUrl">https://fsrsns.ca/</att>
+        <att name="institution">Fishermen and Scientists Research Society</att>
+        <att name="keywords"> data, fish, fishing, industry, Earth Science &gt; Oceans &gt; Salinity/Density &gt; Salinity, gear, latitude, longitude, ocean, pressure, profile, program, salinity, science, sea, sea_water_practical_salinity, seawater, segment, sensor, temperature, time, type, vessel, vessel_gear_type, water, citizen_science, citizen science, arctic, situ, in-situ, </att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v55</att>
+        <att name="subsetVariables">zone</att>
+        <att name="summary">Bottom temperatures collected with sensors deployed via lobster traps. Data cleaning and basic QC has been applied. Locations and depths are recorded manually by fishers.</att>
+        <att name="title">FSRS data: Bottom temperature data from Lobster traps</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>datetime</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Datetime</att>
+            <att name="source_name">datetime</att>
+            <att name="standard_name">time</att>
+            <att name="time_precision">1970-01-01T00:00:00Z</att>
+            <att name="units">yyyy-MM-dd&#39; &#39;HH:mm:ss</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+			<att name="_FillValue" type="float">NaN</att>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Latitude</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+			<att name="_FillValue" type="float">NaN</att>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>depth</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+			<att name="_FillValue" type="float">NaN</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Depth</att>
+			<att name="positive">down</att>
+			<att name="standard_name">depth</att>
+			<att name="units">m</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>temperature</sourceName>
+        <destinationName>temperature</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+		    <att name="_FillValue" type="float">NaN</att>
+			<att name="colorBarMaximum" type="double">25.0</att>
+            <att name="colorBarMinimum" type="double">-4.0</att>
+            <att name="ioos_category">Temperature</att>
+            <att name="long_name">Sea Water Temperature</att>
+			<att name="standard_name">sea_water_temperature</att>
+			<att name="units">degree_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>gauge</sourceName>
+        <destinationName>gauge</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Serial Number</att>
+			<att name="description">Serial number of deployed Vemco Mini-log sensor.</att>
+			<att name="ioos_category">Identifier</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LFA_zone</sourceName>
+        <destinationName>zone</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">LFA Zone</att>
+			<att name="description"> Lobster Fishing Area, as designated by DFO, where fishing activity was registered.</att>
+			<att name="ioos_category">Location</att>
+        </addAttributes>
+    </dataVariable>
+	<dataVariable>
+        <sourceName>Soak Days</sourceName>
+        <destinationName>soak_days</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+		    <att name="_FillValue" type="int">NaN</att>
+            <att name="ioos_category">Time</att>
+            <att name="description">Number of days that the lobster pot was continuously fishing for in the respective deployment.</att>
+        </addAttributes>
+    </dataVariable>
+	<dataVariable>
+        <sourceName>vessel_id</sourceName>
+        <destinationName>vessel_id</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+		    <att name="_FillValue" type="int">NaN</att>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Confidential Unique Vessel Identifier</att>
+        </addAttributes>
+    </dataVariable>
+	<dataVariable>
+        <sourceName>flag_spike</sourceName>
+        <destinationName>qc_spike</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+		    <att name="_FillValue" type="byte">NaN</att>
+			<att name="actual_range" type="intList">0 9</att>
+			<att name="flag_meanings" type="String">NaN/0 No QC was performed, 1 Good data, 2 Suspect data, 4 Bad data, 5 Corrected data, 9 Missing value</att>
+            <att name="ioos_category">Quality</att>
+			<att name="description">Marked as an outlier based upon standard deviation, potentially logged while sensor was in the air rather than water</att>
+            <att name="long_name">Flag Filter Test</att>
+			<att name="valid_max">9</att>
+			<att name="valid_min">0</att>
+        </addAttributes>
+    </dataVariable>
+	<dataVariable>
+        <sourceName>flag_bathy</sourceName>
+        <destinationName>qc_bathymetry</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+			<att name="_FillValue" type="byte">NaN</att>
+			<att name="actual_range" type="intList">0 9</att>
+			<att name="flag_meanings" type="String">NaN/0 No QC was performed, 1 Good data, 2 Suspect data, 4 Bad data, 5 Corrected data, 9 Missing value</att>
+            <att name="ioos_category">Quality</att>
+			<att name="description">Suspect based upon discrepancy between logged depth and GEBCO database bathymetry for the corresponding logged location</att>
+            <att name="long_name">Flag Bathymetry Test</att>
+			<att name="valid_max">9</att>
+			<att name="valid_min">0</att>
+        </addAttributes>
+    </dataVariable>
+	<dataVariable>
+        <sourceName>flag_logged_location</sourceName>
+        <destinationName>qc_logged_location</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+			<att name="_FillValue" type="byte">NaN</att>
+			<att name="actual_range" type="intList">0 9</att>
+			<att name="flag_meanings" type="String">NaN/0 No QC was performed, 1 Good data, 2 Suspect data, 4 Bad data, 5 Corrected data, 9 Missing value</att>
+            <att name="ioos_category">Quality</att>
+			<att name="description">Suspect based upon a logged change in depth not corresponding to a change in position</att>
+            <att name="long_name">Flag Logged Location Test</att>
+			<att name="valid_max">9</att>
+			<att name="valid_min">0</att>
+        </addAttributes>
+    </dataVariable>
+	<dataVariable>
+        <sourceName>flag_logged_depth</sourceName>
+        <destinationName>qc_logged_depth</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+			<att name="_FillValue" type="byte">NaN</att>
+			<att name="actual_range" type="intList">0 9</att>
+			<att name="flag_meanings" type="String">NaN/0 No QC was performed, 1 Good data, 2 Suspect data, 4 Bad data, 5 Corrected data, 9 Missing value</att>
+            <att name="ioos_category">Quality</att>
+			<att name="description">Suspect based upon a logged change in location not corresponding to change in depth</att>
+            <att name="long_name">Flag Logged Depth Test</att>
+			<att name="valid_max">9</att>
+			<att name="valid_min">0</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>
+</erddapDatasets>
