@@ -68,7 +68,7 @@ Before explaining the filtering flag, some variables are created to understand t
  - Std2: temperature standard deviation using a rolling of the 48 nearest samples (2 days approximately).
  - IQR: temperature InterQuartile Range between quantiles 0.2 and 0.8 using a rolling of the 48 nearest samples.
 
-<b>qc_spike</b>: <br>
+<b>qc_spike<\b>: 
 	- Data is flagged as failed if the following conditions are not fulfilled.
 		- Filter 1: Temperature < -3 ºC
 		- Filter 2: 
@@ -87,9 +87,9 @@ Before explaining the filtering flag, some variables are created to understand t
 				- Applying gap_time > 1.8 days, first and last gap times are found. Data between these times are filtered.
 			- If the IQR std <= 1 ºC
 				- Temp_med variable is created using the following formula: 
-					<i>temp_med = abs(temp_logged - temp_logged.rolling(5).median)</i>
-				- If <i>temp_med.max - (temp_med.max - temp_med.quantile(0.98)/2) > 1</i>, any data above 1 is filtered.
-				- If <i>temp_med.max - (temp_med.max - temp_med.quantile(0.98)/2) <= 1</i>, any data above the bold formula is filtered as well.
+					<i>temp_med = abs(temp_logged - temp_logged.rolling(5).median)<\i>
+				- If <i>temp_med.max - (temp_med.max - temp_med.quantile(0.98)/2) > 1<\i>, any data above 1 is filtered.
+				- If <i>temp_med.max - (temp_med.max - temp_med.quantile(0.98)/2) <= 1<\i>, any data above the bold formula is filtered as well.
 
 <div align="center">
 
